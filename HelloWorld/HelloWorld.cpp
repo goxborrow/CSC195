@@ -3,14 +3,39 @@
 
 #include "Student.h"
 #include <iostream>
+#include <string>
+
 using namespace std;
+
+class Person
+{
+public:
+    float weight;
+    int age;
+
+    void f() {}
+};
 
 int main() {
 
     Student student;
     student.SetName("Amia");
-    student.GetName();
     student.Write();
+
+    Person person;
+    person.age = 20;
+
+    unsigned int i = 65;
+    //printf("%d\n,", i);
+    std::cout << i << std::endl;
+    std::cout << sizeof(char) << std::endl;
+    cout << sizeof(Person) << endl;
+
+    cout << ++i << endl;
+
+    char c = 'A';
+    cout << &i << endl;
+
 
     f();
 
