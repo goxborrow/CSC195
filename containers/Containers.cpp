@@ -4,8 +4,19 @@
 #include <list>
 #include <stack>
 #include <map>
+#include <unordered_map>
 
 using namespace std;
+
+unsigned int GetHash(std::string str) {
+	int hash = 0;
+	//"Amia" 
+
+	for (char c : str) {
+		hash = hash * 31 + (int)c;
+	}
+	return hash;
+}
 
 int main()
 {
@@ -50,6 +61,11 @@ int main()
 	lst.insert(lst.end(), "Tomato");
 	lst.remove("Banana");
 
+	//list<string>::iterator it = lst.begin();
+	//cout << *it << endl;
+	//it++;
+	//cout << *it << endl;
+
 	for (string list : lst) {
 		cout << list << endl;
 	}
@@ -69,13 +85,40 @@ int main()
 		cout << grocery.first << ": " << grocery.second << endl;
 	}
 
+	//unordered map
+	unordered_map<string, string> um;
+	um["Apples"] = "Granny Smith";
+	um["Oranges"] = "Blood";
+	um["Pears"] = "Kasane Teto";
 
+	cout << um["Pears"] << endl;
+
+	//stack
+	stack<int> s;
+	s.push(1);
+	s.push(2);
+	s.pop();
+	cout << s.top() << endl;
+
+	
 	
 	
 	//cout << &i << endl;
 	//cout << (void*)(& arr[0]) << endl;
 	//cout << (void*)(& arr[1]) << endl;
 
+	//-----------------------
+	//
+
+	string name = "Amia";
+	int hash = GetHash(name);
+	cout << hash << endl;
+
+	int data[10];
+	data[hash % 10] = 84037;
+	//buncha stuff
+	hash = GetHash("Amia");
+	cout << data[hash % 10] << endl;
 
 	return 0;
 }
